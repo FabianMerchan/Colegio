@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Colegio.Models.Reportes>
+@{
+    ViewBag.Title = "Reporte de Calificaciones";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-hover ">
+    <thead class="table-dark">
+        <tr>
+            <th>Año Academico</th>
+            <th>ID Alumno</th>
+            <th>Alumno</th>
+            <th>ID Asignatura</th>
+            <th>Asignatura</th>
+            <th>ID Profesor</th>
+            <th>Profesor</th>
+            <th>Calificacion Final</th>
+            <th>Aprobo</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Anio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Alumno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alumno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Asignatura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Asignatura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Profesor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Profesor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calificacion_Final)
+                </td>
+                @if (item.Calificacion_Final >= 3) {
+                    item.Aprobo = "SI";
+                }
+                else
+                {
+                    item.Aprobo = "NO";
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aprobo)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+

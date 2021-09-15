@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Administracion Colegio";
+}
+
+<h1 class="text-center">@ViewBag.Title</h1>
+<br />
+
+<div class="container-fluid ">
+    <div class="container ">
+
+
+
+        <div class="row ">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                @Html.ActionLink("Administracion Alumnos", "Index" , "Alumnos", null, htmlAttributes: new { @class = "btn btn-primary btn-lg btn-block" })               
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                @Html.ActionLink("Administracion Profesores", "Index", "Profesores", null, htmlAttributes: new { @class = "btn btn-primary btn-lg btn-block" })                
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                @Html.ActionLink("Administracion Materias", "Index", "Asignaturas", null, htmlAttributes: new { @class = "btn btn-primary btn-lg btn-block" })              
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <h2> Asignacion de Materias</h2>
+        <br />
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                @Html.ActionLink("Asignacion", "Index", "AsignarMaterias", null, htmlAttributes: new { @class = "btn btn-primary btn-lg btn-block" })                
+            </div>            
+        </div>
+        <br />
+        <br />
+
+        <h2> Reporte de Calificaciones</h2>
+        <br />
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                
+                @Html.ActionLink("Reportes", "Index", "Reporte", null, htmlAttributes: new { @class = "btn btn-primary btn-lg btn-block" })
+            </div>           
+        </div>
+    </div>
+
+</div>
+

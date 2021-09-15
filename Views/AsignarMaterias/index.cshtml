@@ -1,0 +1,128 @@
+﻿@*@model IEnumerable<Colegio.Models.AsignacionAlumnos>*@
+
+@model Colegio.Models.AsignacionAlumnos
+@{
+    ViewBag.Title = "Asignar Materias";
+}
+
+<h1 class="text-center">@ViewBag.Title</h1>
+
+
+
+
+@using (Html.BeginForm("AsignarAlumno", "AsignarMaterias", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid ">
+        <div class="container ">
+
+            <h2>Asignacion Alumnos</h2>
+            <br />
+            <div class="row ">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                    <h5>
+                        @Html.Label("Nombre Alumno")
+                    </h5>
+                    @Html.DropDownList("IdAlumno", new SelectList(ViewBag.listaAlumnos, "Id", "Nombre"), htmlAttributes: new { @class = "btn  dropdown-toggle btn-lg" })
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                    <h5>
+                        @Html.Label("Nombre Asignatura")
+                    </h5>
+                    @Html.DropDownList("IdAsignatura", new SelectList(ViewBag.listaAsignaturaAlumno, "Id", "Nombre "), htmlAttributes: new { @class = "btn  dropdown-toggle btn-lg" })
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                    <h5>
+                        @Html.Label("Año")
+                    </h5>
+                    @Html.Editor("Anio", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Anio, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                    <h5>
+                        @Html.Label("Calificaciones")
+                    </h5>
+                    @Html.Editor("Calificacion", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Calificacion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="row ">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                    <input type="submit" value="Asignar" class="btn btn-secondary btn-lg btn-block" />
+                </div>
+                <br />
+                <div> 
+                    <h4 class="text-info">
+                        @TempData["MensajeAlumno"]
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+<hr>
+<br />
+<br />
+
+@using (Html.BeginForm("AsignarProfesor", "AsignarMaterias", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid ">
+        <div class="container ">
+            <h2> Asignacion Profesores</h2>
+            <br />
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                    <h5>
+                        @Html.Label("Nombre Profesor")
+                    </h5>
+                    @Html.DropDownList("IdProfesor", new SelectList(ViewBag.listaProfesores, "Id", "Nombre"), htmlAttributes: new { @class = "btn dropdown-toggle btn-lg" })
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                    <h5>
+                        @Html.Label("Nombre Asignatura")
+                    </h5>
+                    @Html.DropDownList("IdAsignatura", new SelectList(ViewBag.listaAsignaturaProfesor, "Id", "Nombre"), htmlAttributes: new { @class = "btn  dropdown-toggle btn-lg" })
+                </div>
+            </div>
+            <br />
+
+            <div class="row ">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                    <input type="submit" value="Asignar" class="btn btn-secondary  btn-lg btn-block" />
+                </div>
+                <br />
+                <div>
+                    <h4 class="text-info">
+                        @TempData["MensajeProfesor"]
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+﻿@model Colegio.Models.Asignaturas
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Esta seguro de eliminar el registro?</h3>
+<div>
+    <h4>Eliminar Asignaturas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-outline-primary btn-lg btn-block" /> 
+          
+        </div>
+        <br />
+        <div>
+            @Html.ActionLink("Atras", "Index")
+        </div>
+    }
+</div>

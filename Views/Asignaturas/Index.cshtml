@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Colegio.Models.Asignaturas>
+
+@{
+    ViewBag.Title = "Administracion de Asignaturas";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+        @Html.ActionLink("Crear Nueva Asignatura", "Create", null, htmlAttributes: new { @class = "btn btn-outline-primary btn-lg btn-block" })
+    </div>
+</div>
+<br />
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-primary btn-block" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-outline-primary  btn-block" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
